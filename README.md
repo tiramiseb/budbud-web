@@ -1,20 +1,15 @@
-*Psst — looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# svelte-tailwindcss-template
 
----
-
-# svelte app
-
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+This is a fork of Svelte's project template to enable usage of Tailwindcss. Refer to https://github.com/sveltejs/template for more info.
 
 To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
 
 ```bash
-npx degit sveltejs/template svelte-app
+npx degit sarioglu/svelte-tailwindcss-template svelte-app
 cd svelte-app
 ```
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
+_Note that you will need to have [Node.js](https://nodejs.org) installed._
 
 ## Get started
 
@@ -34,7 +29,6 @@ npm run dev
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
 By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
 
 ## Deploying to the web
 
