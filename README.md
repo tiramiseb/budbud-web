@@ -1,65 +1,27 @@
-# svelte-tailwindcss-template
+# Bud(get)-Bud(dy) Web interface
 
-This is a fork of Svelte's project template to enable usage of Tailwindcss. Refer to https://github.com/sveltejs/template for more info.
+Bud-Bud is a (very) opiniated personal finance manager, running as a web service.
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+This is the web interface.
 
-```bash
-npx degit sarioglu/svelte-tailwindcss-template svelte-app
-cd svelte-app
-```
+## Opinions
 
-_Note that you will need to have [Node.js](https://nodejs.org) installed._
+* No automatic operations fetching, because if you want to track your budget, you have to take a look
+* Repetition logic is monthly, nothing else
+* However, you may want to repeat some expenses only on some months of the year (for instance, some insurance you would pay only once a year)
+* The only income is your salary or such stuff: medical reimbursements (for instance) are not accounted as income, but as counterparts of other operations (or, in other words, be related to one or multiple other operations)
+* You may relate an operation to one or more other operations (typically, medical reimbursements that relate to multiple doctor appointments)
+* Categories are split into supercategories, but there is no other hierarchy
 
-## Get started
+Personal budget management is not accounting, and sometimes you may have weird or "useless" operations on your account, that's why there is no obligation to relate exactly to your real account amounts, and you can ignore some operations in your budget.
 
-Install the dependencies...
+## In-development warning
 
-```bash
-cd svelte-app
-npm install
-```
+Many things must be read from a config file instead of being hard-coded...
 
-...then start [Rollup](https://rollupjs.org):
+Quick&dirty:
 
-```bash
-npm run dev
-```
-
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-## Deploying to the web
-
-### With [now](https://zeit.co/now)
-
-Install `now` if you haven't already:
-
-```bash
-npm install -g now
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-now
-```
-
-As an alternative, use the [Now desktop client](https://zeit.co/download) and simply drag the unzipped project folder to the taskbar icon.
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public
+```sh
+yarn install
+yarn dev
 ```
