@@ -2,7 +2,8 @@
   // API
   import { gql } from 'apollo-boost';
   import { query, getClient } from 'svelte-apollo';
-  const workspaces = query(getClient(), { query: gql`{workspaces{id}}` });
+  const workspacesOwned = query(getClient(), { query: gql`{workspacesOwned{id name}}` });
+  const workspacesGuest = query(getClient(), { query: gql`{workspacesGuest{id name owner { email }}}` });
 
   // Icon
   import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -12,15 +13,22 @@
   
 </script>
 <Card>
-  {#await $workspaces}
-    ...
-  {:then result}
-    {#each result.data.workspaces as workspace}
-      {workspace.id}
-    {:else}
-      You don't have any workspace
-    {/each}
-  {/await}
+  <ul>
+    {#await $workspacesOwned}
+      ...
+    {:then result}
+      {#each result.data.workspacesOwned as workspace}
+        <li>{workspace.name}</li>
+      {/each}
+    {/await}
+    {#await $workspacesGuest}
+      ...
+    {:then result}
+      {#each result.data.workspacesGuest as workspace}
+        <li>[{workspace.owner.email}] {workspace.name}</li>
+      {/each}
+    {/await}
+  </ul>
 </Card>
 <div class="float-right">
   <Button icon={faPlus} text="Create a workspace"/>
