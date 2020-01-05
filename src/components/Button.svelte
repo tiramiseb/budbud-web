@@ -16,20 +16,24 @@
 
   import Fa from 'svelte-fa';
   import { link } from "svelte-routing";
-  let cls = "font-bold";
-  if (icon && text==="") {
-    // Icon-only button
-    cls += " py-2 px-2 rounded-full";
-  } else {
-    cls += " py-2 px-3 rounded";
-  }
-  if (hollow) {
-    cls += ` text-${color}-600 hover:text-${color}-700 hover:bg-${color}-200 hover:shadow-inner`;
-  } else {
-    cls += ` border border-${color}-600 shadow-md bg-${color}-500 text-white hover:bg-${color}-600 hover:border-${color}-700`;
-  }
-  if (wfull) {
-    cls += " block w-full";
+
+  let cls = "";
+  $: {
+    cls = "font-bold";
+    if (icon && text==="") {
+      // Icon-only button
+      cls += " py-2 px-2 rounded-full";
+    } else {
+      cls += " py-2 px-3 rounded";
+    }
+    if (hollow) {
+      cls += ` text-${color}-600 hover:text-${color}-700 hover:bg-${color}-200 hover:shadow-inner`;
+    } else {
+      cls += ` shadow-md bg-${color}-500 text-white hover:bg-${color}-600`;
+    }
+    if (wfull) {
+      cls += " block w-full";
+    }
   }
 </script>
 {#if href}
