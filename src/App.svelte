@@ -46,9 +46,13 @@
   import Navbar from './components/Navbar.svelte';
 
   import { Router, Route } from 'svelte-routing';
+
   import Index from './pages/Index.svelte';
   import Login from './pages/Login.svelte';
   import Profile from './pages/Profile.svelte';
+
+  import Workspace from './pages/Workspace.svelte';
+
   import NotFound from './pages/NotFound.svelte';
 
 </script>
@@ -67,10 +71,13 @@
         {networkErr}
       {/if}
     </Alert>
-    <!-- <GraphqlError bind:networkError={nErr} bind:graphqlErrors={gErrs}/> -->
+    <!-- Meta etc -->
     <Route path="/" component={Index} />
     <Route path="/login" component={Login} />
     <Route path="/profile" component={Profile} />
+    <!-- Ownership -->
+    <Route path="/ws/:id" component={Workspace} />
+    <!-- Error -->
     <Route component={NotFound} />
   </div>
 </Router>
