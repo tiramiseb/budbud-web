@@ -1,12 +1,12 @@
 <script>
-  import { gql } from 'apollo-boost';
   import { tick, onDestroy } from 'svelte';
   import { mutate, getClient } from 'svelte-apollo';
   import { navigate } from "svelte-routing";
-  import { user } from "../stores.js";
   import Alert from '../components/Alert.svelte';
   import Card from "../components/Card.svelte";
   import Button from "../components/Button.svelte";
+  import { user } from "../stores.js";
+  import { Mlogin } from "../queries.js";
   const client = getClient();
   let email = '';
   let password = '';
@@ -37,7 +37,7 @@
   function doLogin() {
     hideWrongCredentials = true;
     mutate(client, {
-      mutation: gql`mutation DoLogin($email: String!, $password: String!){login(email:$email, password:$password){email}}`,
+      mutation: Mlogin,
       variables: { email, password }
     }).then(result=>{
       user.set({

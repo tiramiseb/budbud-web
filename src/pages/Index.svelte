@@ -1,15 +1,14 @@
 <script>
   // API
-  import { gql } from 'apollo-boost';
   import { query, getClient } from 'svelte-apollo';
   import { Link } from "svelte-routing";
-  import { user } from "../stores.js";
-  const workspaces = query(getClient(), { query: gql`{workspaces{id name owner { email }}}` });
-
   import { faPlus } from '@fortawesome/free-solid-svg-icons'
   import Badge from "../components/Badge.svelte";
   import Button from "../components/Button.svelte";
   import Card from "../components/Card.svelte";
+  import { user } from "../stores.js";
+  import { Qworkspaces } from "../queries.js";
+  const workspaces = query(getClient(), { query: Qworkspaces });
 
 </script>
 <Card>
