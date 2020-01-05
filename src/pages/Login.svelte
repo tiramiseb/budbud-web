@@ -5,8 +5,8 @@
   import Alert from '../components/Alert.svelte';
   import Card from "../components/Card.svelte";
   import Button from "../components/Button.svelte";
-  import { user } from "../stores.js";
-  import { Mlogin } from "../queries.js";
+  import { user } from "../stores";
+  import { Mlogin } from "../queries";
   const client = getClient();
   let email = '';
   let password = '';

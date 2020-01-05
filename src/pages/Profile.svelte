@@ -3,8 +3,8 @@
 
   import { mutate, getClient } from 'svelte-apollo';
   import { navigate } from "svelte-routing";
-  import { user } from "../stores.js";
-  import { Mlogout } from "../queries.js";
+  import { user } from "../stores";
+  import { Mlogout } from "../queries";
 
   import Card from "../components/Card.svelte";
   import Button from "../components/Button.svelte";

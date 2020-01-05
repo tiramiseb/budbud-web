@@ -6,8 +6,8 @@
   import Badge from "../components/Badge.svelte";
   import Button from "../components/Button.svelte";
   import Card from "../components/Card.svelte";
-  import { user } from "../stores.js";
-  import { Qworkspaces } from "../queries.js";
+  import { user } from "../stores";
+  import { Qworkspaces } from "../queries";
   const workspaces = query(getClient(), { query: Qworkspaces });
 
 </script>

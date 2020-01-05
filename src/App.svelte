@@ -3,7 +3,7 @@
   import ApolloClient from 'apollo-boost';
   import { query, setClient } from 'svelte-apollo'; 
   import { navigate } from 'svelte-routing';
-  import { Qme } from './queries.js';
+  import { Qme } from './queries';
   
   let hideGraphqlErrors = true;
   let networkErr = undefined;
@@ -34,7 +34,7 @@
   });
   setClient(client);
 
-  import { user } from "./stores.js";
+  import { user } from "./stores";
   query(client, { query: Qme }).refetch().then(resp=>{
     user.set({loggedin: true, email:resp.data.me.email})
   }, ()=>{
