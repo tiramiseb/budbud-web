@@ -76,7 +76,8 @@
     <Route path="/login" component={Login} />
     <Route path="/profile" component={Profile} />
     <!-- Ownership -->
-    <Route path="/ws/:id" component={Workspace} />
+    <Route path="/ws/:name" component={Workspace} />
+    <Route path="/ws/:ownerEmail/:name" component={Workspace} />
     <!-- Error -->
     <Route component={NotFound} />
   </div>
