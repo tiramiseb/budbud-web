@@ -11,7 +11,15 @@ export const Qworkspace = gql`
 query Workspace($ownerEmail: String, $name: String) {
   workspace(ownerEmail: $ownerEmail, name: $name) {
     id,
-    name
+    name,
+    categories {
+      id,
+      name,
+      categories {
+        id,
+        name
+      }
+    }
   }
 }
 `;
