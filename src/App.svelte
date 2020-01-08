@@ -17,7 +17,10 @@
         graphQLErrors.forEach(err => {
           const msg = err.message;
           if (msg === "Unauthenticated") {
-            navigate(`/login?next=${window.location.pathname}`)
+            const current = window.location.pathname;
+            if (current !== "/login") {
+              navigate(`/login?next=${current}`)
+            }
             return
           } else if (msg === "Wrong email or password") {
             return
