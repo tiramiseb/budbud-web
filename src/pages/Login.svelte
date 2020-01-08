@@ -1,5 +1,5 @@
 <script>
-  import { tick, onDestroy } from 'svelte';
+  import { onDestroy } from 'svelte';
   import { mutate, getClient } from 'svelte-apollo';
   import { navigate } from "svelte-routing";
   import Alert from '../components/Alert.svelte';
@@ -44,6 +44,7 @@
         loggedin: true,
         email: result.data.login.email
       })
+      goToNext()
     }, (err)=>{
       if (err.message === "GraphQL error: Wrong email or password") {
         hideWrongCredentials = false;
